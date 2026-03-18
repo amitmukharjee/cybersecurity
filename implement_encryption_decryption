@@ -1,0 +1,322 @@
+linuxinfiniteloop@linuxinfiniteloop:~$ mkdir cybersecurity
+linuxinfiniteloop@linuxinfiniteloop:~$ cd cybersecurity/
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ ls
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl genrsa -out myprivate1.pem 1024
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ cat myprivate1.pem
+-----BEGIN PRIVATE KEY-----
+MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAOO9iRVfqt3jAplv
++uMyKBb2uMWLd2eKpWlBUufvRR1etkDbFJH7HrM0GE7UhFnQT3oYmex5+uzCIuAR
+ge3YQ4NfuEVLdsR2kaA8XOgV2bjrh05ZZe6OcQaye3JEoNs/+Yz2z1fyZmtNyFJL
+kW8LnJvdh3wN5117J33BGZ1L6/IVAgMBAAECgYEArsZLSMrlf2lzGjv0550bZRwt
+CvWQSjb94HwQWwymFvcTmUxISgvVMKP/L6gqdh7Gj6YHopKuPjpyt1DYTKbWj64r
+liq/5HdwEWv8u4lZiMCnCc8nhQ2qVjzmaq9681EkPu0OdbaWe8z7wPVUEjwiH8ej
+3FY1ymH4QnWkGBisYAECQQDzlSJpX0lNktoczK21XfhdaJHbWs/cWtTC+rnMmao0
+aE+qylE7u3bSxLo5UqsWVsvuvCpuK9hQ944nxEn5DgoVAkEA71mnOH0SGK3cATn0
+mml37jbzt7DVPcoCRueI9FuHP5lnRbtHYaDw6PrhWzHIfgH/v8j7j/kqt55zxpnF
+iehIAQJAZthmEiWYVreVfilxgq1ti0r2oq5iK0DyqmygfGG5Oq18TblkuRq63d0Q
+X9mmwSTesCskoyXCDNWpYOMA9LZXzQJBAOFq1BxVXmezxhG5nW6XigXl5x7HAe3R
+hNd2U/ue//+b4DFCMfX2dy1Uqk0S07oo886R4Ko1hk+sgWk3hV1eUAECQQC5Vjvp
+viIzLNt5NxcILM6zutl1jiA1vV2QPr6dSbO23AzDtT6bj23gF6awZT6uPn8PLExr
+mhwLZDdzIfdk5Ad1
+-----END PRIVATE KEY-----
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate1.pem -out
+-out      -outform
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate1.pem -outform PEM -pub
+-pubin   -pubout
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate1.pem -outform PEM -pubout -out mypublickey1.pem
+writing RSA key
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ ls
+myprivate1.pem  mypublickey1.pem
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ cat myp
+myprivate1.pem    mypublickey1.pem
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ cat mypublickey1.pem
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjvYkVX6rd4wKZb/rjMigW9rjF
+i3dniqVpQVLn70UdXrZA2xSR+x6zNBhO1IRZ0E96GJnsefrswiLgEYHt2EODX7hF
+S3bEdpGgPFzoFdm464dOWWXujnEGsntyRKDbP/mM9s9X8mZrTchSS5FvC5yb3Yd8
+Deddeyd9wRmdS+vyFQIDAQAB
+-----END PUBLIC KEY-----
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate1.pem PEM -out mypublickey2.pem
+rsa: Use -help for summary.
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ ls
+myprivate1.pem  mypublickey1.pem
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate1.pem -text
+Private-Key: (1024 bit, 2 primes)
+modulus:
+    00:e3:bd:89:15:5f:aa:dd:e3:02:99:6f:fa:e3:32:
+    28:16:f6:b8:c5:8b:77:67:8a:a5:69:41:52:e7:ef:
+    45:1d:5e:b6:40:db:14:91:fb:1e:b3:34:18:4e:d4:
+    84:59:d0:4f:7a:18:99:ec:79:fa:ec:c2:22:e0:11:
+    81:ed:d8:43:83:5f:b8:45:4b:76:c4:76:91:a0:3c:
+    5c:e8:15:d9:b8:eb:87:4e:59:65:ee:8e:71:06:b2:
+    7b:72:44:a0:db:3f:f9:8c:f6:cf:57:f2:66:6b:4d:
+    c8:52:4b:91:6f:0b:9c:9b:dd:87:7c:0d:e7:5d:7b:
+    27:7d:c1:19:9d:4b:eb:f2:15
+publicExponent: 65537 (0x10001)
+privateExponent:
+    00:ae:c6:4b:48:ca:e5:7f:69:73:1a:3b:f4:e7:9d:
+    1b:65:1c:2d:0a:f5:90:4a:36:fd:e0:7c:10:5b:0c:
+    a6:16:f7:13:99:4c:48:4a:0b:d5:30:a3:ff:2f:a8:
+    2a:76:1e:c6:8f:a6:07:a2:92:ae:3e:3a:72:b7:50:
+    d8:4c:a6:d6:8f:ae:2b:96:2a:bf:e4:77:70:11:6b:
+    fc:bb:89:59:88:c0:a7:09:cf:27:85:0d:aa:56:3c:
+    e6:6a:af:7a:f3:51:24:3e:ed:0e:75:b6:96:7b:cc:
+    fb:c0:f5:54:12:3c:22:1f:c7:a3:dc:56:35:ca:61:
+    f8:42:75:a4:18:18:ac:60:01
+prime1:
+    00:f3:95:22:69:5f:49:4d:92:da:1c:cc:ad:b5:5d:
+    f8:5d:68:91:db:5a:cf:dc:5a:d4:c2:fa:b9:cc:99:
+    aa:34:68:4f:aa:ca:51:3b:bb:76:d2:c4:ba:39:52:
+    ab:16:56:cb:ee:bc:2a:6e:2b:d8:50:f7:8e:27:c4:
+    49:f9:0e:0a:15
+prime2:
+    00:ef:59:a7:38:7d:12:18:ad:dc:01:39:f4:9a:69:
+    77:ee:36:f3:b7:b0:d5:3d:ca:02:46:e7:88:f4:5b:
+    87:3f:99:67:45:bb:47:61:a0:f0:e8:fa:e1:5b:31:
+    c8:7e:01:ff:bf:c8:fb:8f:f9:2a:b7:9e:73:c6:99:
+    c5:89:e8:48:01
+exponent1:
+    66:d8:66:12:25:98:56:b7:95:7e:29:71:82:ad:6d:
+    8b:4a:f6:a2:ae:62:2b:40:f2:aa:6c:a0:7c:61:b9:
+    3a:ad:7c:4d:b9:64:b9:1a:ba:dd:dd:10:5f:d9:a6:
+    c1:24:de:b0:2b:24:a3:25:c2:0c:d5:a9:60:e3:00:
+    f4:b6:57:cd
+exponent2:
+    00:e1:6a:d4:1c:55:5e:67:b3:c6:11:b9:9d:6e:97:
+    8a:05:e5:e7:1e:c7:01:ed:d1:84:d7:76:53:fb:9e:
+    ff:ff:9b:e0:31:42:31:f5:f6:77:2d:54:aa:4d:12:
+    d3:ba:28:f3:ce:91:e0:aa:35:86:4f:ac:81:69:37:
+    85:5d:5e:50:01
+coefficient:
+    00:b9:56:3b:e9:be:22:33:2c:db:79:37:17:08:2c:
+    ce:b3:ba:d9:75:8e:20:35:bd:5d:90:3e:be:9d:49:
+    b3:b6:dc:0c:c3:b5:3e:9b:8f:6d:e0:17:a6:b0:65:
+    3e:ae:3e:7f:0f:2c:4c:6b:9a:1c:0b:64:37:73:21:
+    f7:64:e4:07:75
+writing RSA key
+-----BEGIN PRIVATE KEY-----
+MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAOO9iRVfqt3jAplv
++uMyKBb2uMWLd2eKpWlBUufvRR1etkDbFJH7HrM0GE7UhFnQT3oYmex5+uzCIuAR
+ge3YQ4NfuEVLdsR2kaA8XOgV2bjrh05ZZe6OcQaye3JEoNs/+Yz2z1fyZmtNyFJL
+kW8LnJvdh3wN5117J33BGZ1L6/IVAgMBAAECgYEArsZLSMrlf2lzGjv0550bZRwt
+CvWQSjb94HwQWwymFvcTmUxISgvVMKP/L6gqdh7Gj6YHopKuPjpyt1DYTKbWj64r
+liq/5HdwEWv8u4lZiMCnCc8nhQ2qVjzmaq9681EkPu0OdbaWe8z7wPVUEjwiH8ej
+3FY1ymH4QnWkGBisYAECQQDzlSJpX0lNktoczK21XfhdaJHbWs/cWtTC+rnMmao0
+aE+qylE7u3bSxLo5UqsWVsvuvCpuK9hQ944nxEn5DgoVAkEA71mnOH0SGK3cATn0
+mml37jbzt7DVPcoCRueI9FuHP5lnRbtHYaDw6PrhWzHIfgH/v8j7j/kqt55zxpnF
+iehIAQJAZthmEiWYVreVfilxgq1ti0r2oq5iK0DyqmygfGG5Oq18TblkuRq63d0Q
+X9mmwSTesCskoyXCDNWpYOMA9LZXzQJBAOFq1BxVXmezxhG5nW6XigXl5x7HAe3R
+hNd2U/ue//+b4DFCMfX2dy1Uqk0S07oo886R4Ko1hk+sgWk3hV1eUAECQQC5Vjvp
+viIzLNt5NxcILM6zutl1jiA1vV2QPr6dSbO23AzDtT6bj23gF6awZT6uPn8PLExr
+mhwLZDdzIfdk5Ad1
+-----END PRIVATE KEY-----
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate1.pem -text -noout
+Private-Key: (1024 bit, 2 primes)
+modulus:
+    00:e3:bd:89:15:5f:aa:dd:e3:02:99:6f:fa:e3:32:
+    28:16:f6:b8:c5:8b:77:67:8a:a5:69:41:52:e7:ef:
+    45:1d:5e:b6:40:db:14:91:fb:1e:b3:34:18:4e:d4:
+    84:59:d0:4f:7a:18:99:ec:79:fa:ec:c2:22:e0:11:
+    81:ed:d8:43:83:5f:b8:45:4b:76:c4:76:91:a0:3c:
+    5c:e8:15:d9:b8:eb:87:4e:59:65:ee:8e:71:06:b2:
+    7b:72:44:a0:db:3f:f9:8c:f6:cf:57:f2:66:6b:4d:
+    c8:52:4b:91:6f:0b:9c:9b:dd:87:7c:0d:e7:5d:7b:
+    27:7d:c1:19:9d:4b:eb:f2:15
+publicExponent: 65537 (0x10001)
+privateExponent:
+    00:ae:c6:4b:48:ca:e5:7f:69:73:1a:3b:f4:e7:9d:
+    1b:65:1c:2d:0a:f5:90:4a:36:fd:e0:7c:10:5b:0c:
+    a6:16:f7:13:99:4c:48:4a:0b:d5:30:a3:ff:2f:a8:
+    2a:76:1e:c6:8f:a6:07:a2:92:ae:3e:3a:72:b7:50:
+    d8:4c:a6:d6:8f:ae:2b:96:2a:bf:e4:77:70:11:6b:
+    fc:bb:89:59:88:c0:a7:09:cf:27:85:0d:aa:56:3c:
+    e6:6a:af:7a:f3:51:24:3e:ed:0e:75:b6:96:7b:cc:
+    fb:c0:f5:54:12:3c:22:1f:c7:a3:dc:56:35:ca:61:
+    f8:42:75:a4:18:18:ac:60:01
+prime1:
+    00:f3:95:22:69:5f:49:4d:92:da:1c:cc:ad:b5:5d:
+    f8:5d:68:91:db:5a:cf:dc:5a:d4:c2:fa:b9:cc:99:
+    aa:34:68:4f:aa:ca:51:3b:bb:76:d2:c4:ba:39:52:
+    ab:16:56:cb:ee:bc:2a:6e:2b:d8:50:f7:8e:27:c4:
+    49:f9:0e:0a:15
+prime2:
+    00:ef:59:a7:38:7d:12:18:ad:dc:01:39:f4:9a:69:
+    77:ee:36:f3:b7:b0:d5:3d:ca:02:46:e7:88:f4:5b:
+    87:3f:99:67:45:bb:47:61:a0:f0:e8:fa:e1:5b:31:
+    c8:7e:01:ff:bf:c8:fb:8f:f9:2a:b7:9e:73:c6:99:
+    c5:89:e8:48:01
+exponent1:
+    66:d8:66:12:25:98:56:b7:95:7e:29:71:82:ad:6d:
+    8b:4a:f6:a2:ae:62:2b:40:f2:aa:6c:a0:7c:61:b9:
+    3a:ad:7c:4d:b9:64:b9:1a:ba:dd:dd:10:5f:d9:a6:
+    c1:24:de:b0:2b:24:a3:25:c2:0c:d5:a9:60:e3:00:
+    f4:b6:57:cd
+exponent2:
+    00:e1:6a:d4:1c:55:5e:67:b3:c6:11:b9:9d:6e:97:
+    8a:05:e5:e7:1e:c7:01:ed:d1:84:d7:76:53:fb:9e:
+    ff:ff:9b:e0:31:42:31:f5:f6:77:2d:54:aa:4d:12:
+    d3:ba:28:f3:ce:91:e0:aa:35:86:4f:ac:81:69:37:
+    85:5d:5e:50:01
+coefficient:
+    00:b9:56:3b:e9:be:22:33:2c:db:79:37:17:08:2c:
+    ce:b3:ba:d9:75:8e:20:35:bd:5d:90:3e:be:9d:49:
+    b3:b6:dc:0c:c3:b5:3e:9b:8f:6d:e0:17:a6:b0:65:
+    3e:ae:3e:7f:0f:2c:4c:6b:9a:1c:0b:64:37:73:21:
+    f7:64:e4:07:75
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ cat myprivate1.pem
+-----BEGIN PRIVATE KEY-----
+MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAOO9iRVfqt3jAplv
++uMyKBb2uMWLd2eKpWlBUufvRR1etkDbFJH7HrM0GE7UhFnQT3oYmex5+uzCIuAR
+ge3YQ4NfuEVLdsR2kaA8XOgV2bjrh05ZZe6OcQaye3JEoNs/+Yz2z1fyZmtNyFJL
+kW8LnJvdh3wN5117J33BGZ1L6/IVAgMBAAECgYEArsZLSMrlf2lzGjv0550bZRwt
+CvWQSjb94HwQWwymFvcTmUxISgvVMKP/L6gqdh7Gj6YHopKuPjpyt1DYTKbWj64r
+liq/5HdwEWv8u4lZiMCnCc8nhQ2qVjzmaq9681EkPu0OdbaWe8z7wPVUEjwiH8ej
+3FY1ymH4QnWkGBisYAECQQDzlSJpX0lNktoczK21XfhdaJHbWs/cWtTC+rnMmao0
+aE+qylE7u3bSxLo5UqsWVsvuvCpuK9hQ944nxEn5DgoVAkEA71mnOH0SGK3cATn0
+mml37jbzt7DVPcoCRueI9FuHP5lnRbtHYaDw6PrhWzHIfgH/v8j7j/kqt55zxpnF
+iehIAQJAZthmEiWYVreVfilxgq1ti0r2oq5iK0DyqmygfGG5Oq18TblkuRq63d0Q
+X9mmwSTesCskoyXCDNWpYOMA9LZXzQJBAOFq1BxVXmezxhG5nW6XigXl5x7HAe3R
+hNd2U/ue//+b4DFCMfX2dy1Uqk0S07oo886R4Ko1hk+sgWk3hV1eUAECQQC5Vjvp
+viIzLNt5NxcILM6zutl1jiA1vV2QPr6dSbO23AzDtT6bj23gF6awZT6uPn8PLExr
+mhwLZDdzIfdk5Ad1
+-----END PRIVATE KEY-----
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate1.pem -des3 -out myprivate1_enc.pem
+writing RSA key
+Enter pass phrase:
+Verifying - Enter pass phrase:
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ ls
+myprivate1_enc.pem  myprivate1.pem  mypublickey1.pem
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ cat myprivate1_enc.pem
+-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIC1DBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIlFuV3e3bjVkCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECPTEIpJxqLXZBIICgCmfHGORw+YH
+HAdSZVnsTQkd5txIPN0dARuukpAKiVzMvRyWmsGRa+GN6g6D8n379+N0BVbMpMpQ
+WXV2MFF46kg7S20FyrE7qZ7/4oiHzinRiMv3wi5gfJKVKNR38SyuNVL1vMMmzpsu
+LW+OvydXYro0sW3UvaXdiFDbSzO+wZwrEI7C1vGuHm8N31NXeepaT3SxKLdT3hNv
+zFUOoIcMXB24xCx+JOU3VpNhkx32Xjbgrzw6SV56djdLjbrGKMOt93HEBuXHT8ZR
+QLcZZSlyM179oAm2e6k8UZz+Rd8vCr0qaoEs0aWozlluLK0JCLHMWYNs7LUzXPxJ
+npWFCz8sfp2yj3UTS43+y05KL/OXSH+QSt1IWKXwqdBdTHsWfa871fzyWCF/AiN8
+Yl5+m1UfkQA2Fx9lTpc4IJLLP8FhM1BdrYCyYAR5Hs/D040gXvLtD7pc6Hsu95hD
+pSRX040CtCAHv+8CU+hGiF22KPyleB0f9vmhW6afP5AQcTZhGcQuoO0IhhJZhBvO
+QH19VguSvWtcKwGMQd2yWpnljQGbW5JKpO92Xe+AZS4KfMVHmogRwBV0sYu/MrQn
+1p1nGXCTFdRWKySId1ug6k2BPWYCwktmOhvUeMI70McKNum5iNBZ1hP8Es0WUk1p
+9+Ir+ScDb4WTqh4YWhJaLyr7odliAw3mgtzdPSWnU16qoJ8VPxuh/Wq69aHUp+sH
+HwN2ZTWW9szWHW30qYLqLBtWjuuG1uY4F4DLKtCCxIcmN9tUsdJ8v57JFeLckRFw
+Rfvy3YEfvMmpkODp9BbzwwQq0ncOn4vntOI7D1SyG+4GigJf7o4yKcEQHOcWLBEC
+m68ljrylcm8=
+-----END ENCRYPTED PRIVATE KEY-----
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ its encrypted npw
+Command 'its' not found, did you mean:
+  command 'ips' from deb ips (4.0-1.2)
+  command 'hts' from deb httptunnel (3.3+dfsg-4)
+  command 'is' from deb ironseed (0.3.6-5)
+  command 'bts' from deb devscripts (2.23.7ubuntu0.1)
+  command 'ts' from deb moreutils (0.67-1)
+  command 'iss' from deb insilicoseq (1.6.0-2)
+  command 'ots' from deb ots (0.5.0-8)
+  command 'pts' from deb openafs-client (1.8.10-2.1ubuntu3.4)
+  command 'ils' from deb sleuthkit (4.12.1+dfsg-1)
+Try: sudo apt install <deb name>
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ opens
+opensnoop-bpfcc  opensnoop.bt     openssl
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl genrsa -des3 -out myprivate2_enc.pem
+Enter PEM pass phrase:
+40D7C863B27E0000:error:14000065:UI routines:UI_set_result_ex:result too small:../crypto/ui/ui_lib.c:888:You must type in 4 to 1024 characters
+40D7C863B27E0000:error:1400006B:UI routines:UI_process:processing error:../crypto/ui/ui_lib.c:548:while reading strings
+40D7C863B27E0000:error:0480006D:PEM routines:PEM_def_callback:problems getting password:../crypto/pem/pem_lib.c:62:
+40D7C863B27E0000:error:07880109:common libcrypto routines:do_ui_passphrase:interrupted or cancelled:../crypto/passphrase.c:184:
+40D7C863B27E0000:error:1C80009F:Provider routines:p8info_to_encp8:unable to get passphrase:../providers/implementations/encode_decode/encode_key2any.c:116:
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl genrsa -des3 -out myprivate2_enc.pem
+Enter PEM pass phrase:
+40D725D2197D0000:error:14000065:UI routines:UI_set_result_ex:result too small:../crypto/ui/ui_lib.c:888:You must type in 4 to 1024 characters
+40D725D2197D0000:error:1400006B:UI routines:UI_process:processing error:../crypto/ui/ui_lib.c:548:while reading strings
+40D725D2197D0000:error:0480006D:PEM routines:PEM_def_callback:problems getting password:../crypto/pem/pem_lib.c:62:
+40D725D2197D0000:error:07880109:common libcrypto routines:do_ui_passphrase:interrupted or cancelled:../crypto/passphrase.c:184:
+40D725D2197D0000:error:1C80009F:Provider routines:p8info_to_encp8:unable to get passphrase:../providers/implementations/encode_decode/encode_key2any.c:116:
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl genrsa -des3 -out myprivate2_enc.pem 1024
+Enter PEM pass phrase:
+40E7DA9243720000:error:14000065:UI routines:UI_set_result_ex:result too small:../crypto/ui/ui_lib.c:888:You must type in 4 to 1024 characters
+40E7DA9243720000:error:1400006B:UI routines:UI_process:processing error:../crypto/ui/ui_lib.c:548:while reading strings
+40E7DA9243720000:error:0480006D:PEM routines:PEM_def_callback:problems getting password:../crypto/pem/pem_lib.c:62:
+40E7DA9243720000:error:07880109:common libcrypto routines:do_ui_passphrase:interrupted or cancelled:../crypto/passphrase.c:184:
+40E7DA9243720000:error:1C80009F:Provider routines:p8info_to_encp8:unable to get passphrase:../providers/implementations/encode_decode/encode_key2any.c:116:
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl genrsa -des3 -out myprivate2_enc.pem
+Enter PEM pass phrase:
+40C7F8AAFB700000:error:14000065:UI routines:UI_set_result_ex:result too small:../crypto/ui/ui_lib.c:888:You must type in 4 to 1024 characters
+40C7F8AAFB700000:error:1400006B:UI routines:UI_process:processing error:../crypto/ui/ui_lib.c:548:while reading strings
+40C7F8AAFB700000:error:0480006D:PEM routines:PEM_def_callback:problems getting password:../crypto/pem/pem_lib.c:62:
+40C7F8AAFB700000:error:07880109:common libcrypto routines:do_ui_passphrase:interrupted or cancelled:../crypto/passphrase.c:184:
+40C7F8AAFB700000:error:1C80009F:Provider routines:p8info_to_encp8:unable to get passphrase:../providers/implementations/encode_decode/encode_key2any.c:116:
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl genrsa -des3 -out myprivate2_enc.pem
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ cat myprivate2_enc.pem
+-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIu0cZX4chZBACAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECL+VCTHOlcUZBIIEyCaQejz5k40A
+HscnwZDP964brgaGHYNfudkLmYrf8KHVGfXTCOzdAvmWw4e90pHEQi5FZGbcPgQO
+OjjYuVQAqIfJQ5CtDQ2P5vJUE/oa2rbYMqFYS7/QF8o82AQCbCptRqHe/ec3AlFB
+EGaR2NlMW4xXyxPPik7Ra+NchBCujUNK6gCpTSqo5RPGU0fvstD4XWm8Ok+7tRRM
+bfurVne9u5Bk6JRDARRM2FoKJ4zeI/xCxb19oiOu9MWvDlPTlMRC7cmGQH0ncarp
+zkPjJLn4dv0GgsUts8IxSaxcd8KHiqDwW4LA37KBlA08eCRxoPtAG9mvVZu2ibZd
+DTVxcUGwWFmo3zujc5zwaS153M99NJRIaoX9cSQQbaFYuy3ys1r7vJdjrTJ7ngyO
+1Km3hQV8dWxto42JRyKasraNotsv1Q5hQJVHd2FjlEh8QGqBYztRb2kMe39v5Idw
+2l6fnRlZqDWhz7EuCTP4uOcx28WnCdAmZSNUzMW2iK09OgwIp6gwWy5FlqtXIEDX
+SEINJG1tBU5c/RP7EwYz/H9l3uip9FQ3vIH0oaTU3V3T+Tg4wpWATTLHB6chZDLP
+Eh5m1yMDM5oH4Uydk5irKxVk/txaZgImuREhrLtHSxoIdDR9jbcFUDSvm7yz+0Zf
+KnFaoqse93omUrpwlCjbeuxkBnhGRPQ7dvsFcj5uj9RgZxAIfi4eoECVTMcESZ/7
+G6yYmAfmoll0ciHvq0AdPFQh80kedocdJ86arj59IHqh+ag968tM0d+vOWT7OBO8
+21JlxpgsfREU/TRN2O6/bDOEf3zexis4uIdoOoNVEyMLSca0J+WHybVmPYTEU4gW
+t8FtxsQNvWXHXUHHLwmXOZrUKbI1dNb8G+/6uAUUnUx4dL0JaQ1rBCkDjyI8PVoT
+fUJbHul1p9pE1DBp/hgvVyXLxeYsC6igoXbZ8Epiv2XWTp7SoCBId8pG1P4JK1b2
+m5nHJtOzQeRJ3nFkMH0MEZauHopQ0TPgej5tnuikeEK2KYdd2qGPCLcRW3oeLxHd
+V23Fbz4AoLltBbnWahV64olWq2kQgFgtbsvs6plxG1MvSxyZuERQKszLxZuMv9et
+wO/Pxa187SLjryV9BulkWuhyMuICYGIEdpBonL/b9yNe56Yc7foS1Hp4xuJOjoZz
+c1nNiJWJC1KAo+ufReomIzgkvYzgSDl2lwW0euLdJDB/iUwtw3k/PTF1NKfrzBjA
+fVI3F6sz0XcE7zsN6qtEoP72EoRtB6SX4hZIsyuu8EI13zwqJT15LlVBlMI1mq0a
+piPvOcoYlkQ08IBGFajUdmWTMIXMdhJe1c80uKqgSfCkIKu60YVwvZUw61rWoFgh
+Li0VYDNrYDDdv6dQ/UKEqR0hZzSytQEHEP0r2oMptp5fJ9gSEa26BkE1llGQbzbE
+Maywz0igYGlrdoalcKBPrEk2fNmExyA/IYUpTyvkVh2RN3rit9IfOZYnrctgIXj2
+ywtidqeS2w+SRtwPbNwRZv7XR+4qZQpReCd4nk7Ayz5dceTQssMGg1NnyCQvipr9
+BTCD3mar6PtOpoWrQ3QQOiWgklgqSZVgCuwM55orboXqMcu6waUjRZR6iruyXCkC
+te74tyt2223aouXEhtZbog==
+-----END ENCRYPTED PRIVATE KEY-----
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate2_enc.pem -outform PEM -pubout -out
+-out      -outform
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ openssl rsa -in myprivate2_enc.pem -outform PEM -pubout -out mypublickey2.pem
+Enter pass phrase for myprivate2_enc.pem:
+writing RSA key
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ ls
+myprivate1_enc.pem  myprivate1.pem  myprivate2_enc.pem  mypublickey1.pem  mypublickey2.pem
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$ cat mypublickey2.pem
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxh+MCj/mn7pvqqUv879w
+GSDvYDRG0DJdP3EB9Yf27OU3MYA9wx8WIcsm9LcwmKXmQUehg7Uor64tDt+N8Y/9
+MZncgTKqP0T02sydnZe10uEpLSqYA51hqAfx2UmGQ9zpcZ9SUpZ4F4pZ2cyiAMmp
+js+e/8cb6IwdToAbpkPusPNfPQpYfwerrudDNLyi9xCPU2vbc+Qsh5PaeEt3HZ0c
+T9OVp7Bm7dYZO007f65MJeKNiNate698AwAQe6FBzfcFupNIt795AGGhdG6ziKF9
+A6doaeIMQsZpKjW2kxrF5T38gujoIDdVoBOIGnqy5lwpKpPwrDygqUkA5Cbbm9nl
+MQIDAQAB
+-----END PUBLIC KEY-----
+linuxinfiniteloop@linuxinfiniteloop:~/cybersecurity$
